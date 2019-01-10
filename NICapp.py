@@ -1,8 +1,1 @@
-from tkinter import *
-
-window = Tk()
-
-
-
-
-window.mainloop()
+print("This is testing")
