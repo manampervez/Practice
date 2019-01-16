@@ -4,5 +4,12 @@ os.system("netsh interface show interface")
 def enable():
     os.system("netsh interface set interface 'Wi-Fi' enabled")
 
+enable()
+
 def disable():
-    os.system("netsh interface set interface 'Wi-Fi' disabled")
+   os.system("netsh interface set interface 'TPALAN' disabled")
+
+disable()
+
+print(enable())
+print(disable())
