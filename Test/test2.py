@@ -27,3 +27,4 @@ enable()
 
 import subprocess
 subprocess.call(['netsh', 'interface', 'set', 'interface', 'Wi-Fi', 'disabled'])
+#
