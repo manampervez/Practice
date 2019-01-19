@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings]
+"MigrateProxy"=dword:00000001
+"ProxyEnable"=dword:00000000
+"ProxyHttp1.1"=dword:00000000
+"ProxyServer"="192.168.79.10:800"
+"ProxyOverride"="insideto.toronto.ca;secure.greenp.com;wi.toronto.ca;insidetpa.greenp.com;emailarchive.toronto.ca;fieldworker.greenp.com;sspr.toronto.ca;exchange.toronto.ca;autodiscover.toronto.ca;gwweb.toronto.ca;portal.toronto.ca;portal.corp.toronto.ca;spscitrixweb.toronto.ca;<local>"
