@@ -25,39 +25,23 @@ def wifiOffscript():
 window= Tk()
 
 window.geometry('250x250+250+250') # Window Size
-window.configure(background='white')
+window.configure(background='Blue')
 
 image=Image.open("logo.jpg")
 photo = ImageTk.PhotoImage(image)
-label = Label(image=photo, height=60,width=150)
+label = Label(image=photo, height=75,width=200)
 label.image = photo  # keep a reference!
-label.grid(row=0,column=1)
+label.grid(row=0,column=0,columnspan=2, rowspan=2,sticky=W+E+N+S, padx=15, pady=15)
 
 
 window.title("TPA Software")
 
 
 wifiOnButton=Button(window,text="WiFi-ON",command=wifiOnscript)
-wifiOnButton.grid(row=1,column=1)
+wifiOnButton.grid(row=2,column=0)
 
 wifiOffButton=Button(window,text="WiFi-OFF",command=wifiOffscript)
 wifiOffButton.grid(row=2,column=1)
 
 
-'''
-#udemy Tutorial:
-def km_to_miles():
-    miles=float(e1_value.get())*1.6
-    t1.insert(END,miles)
-
-b1=Button(window,text="Execute",command=km_to_miles)
-b1.grid(row=0,column=1)
-
-e1_value=StringVar()
-e1=Entry(window,textvariable=e1_value)
-e1.grid(row=1,column=1)
-
-t1=Text(window,height=1,width=20)
-t1.grid(row=2,column=1)
-'''
 window.mainloop()
