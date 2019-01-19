@@ -25,6 +25,7 @@ def wifiOffscript():
 window= Tk()
 
 window.geometry('250x250+250+250') # Window Size
+window.title("TPA Software")
 window.configure(background='Blue')
 
 image=Image.open("logo.jpg")
@@ -34,7 +35,7 @@ label.image = photo  # keep a reference!
 label.grid(row=0,column=0,columnspan=2, rowspan=2,sticky=W+E+N+S, padx=15, pady=15)
 
 
-window.title("TPA Software")
+
 
 
 wifiOnButton=Button(window,text="WiFi-ON",command=wifiOnscript)
