@@ -1,8 +1,12 @@
 import os
 import subprocess
 from tkinter import *
+from tkinter.ttk import *
 from PIL import Image,ImageTk
 
+window= Tk()
+windowOne=windowFrame(window, bg='green', height=30)
+windowOne.grid()
 # os.system("netsh interface show interface")
 
 # Wi-Fi ON & LAN OFF Script
@@ -21,12 +25,9 @@ def wifiOffscript():
     subprocess.call(['reg', 'import', 'Enable Proxy.reg'])
 
 
-
-window= Tk()
-
 window.geometry('250x250+250+250') # Window Size
 window.title("TPA Software")
-window.configure(background='Blue')
+window.configure(bg='Blue')
 
 image=Image.open("logo.jpg")
 photo = ImageTk.PhotoImage(image)
@@ -35,14 +36,16 @@ label.image = photo  # keep a reference!
 label.grid(row=0,column=0,columnspan=2, rowspan=2,sticky=W+E+N+S, padx=15, pady=15)
 
 
-
-
-
 wifiOnButton=Button(window,text="WiFi-ON",command=wifiOnscript)
 wifiOnButton.grid(row=2,column=0)
 
 wifiOffButton=Button(window,text="WiFi-OFF",command=wifiOffscript)
 wifiOffButton.grid(row=2,column=1)
 
+'''
+header = tk.Frame(window, bg='green', height=30)
+content = tk.Frame(window, bg='red')
+footer = tk.Frame(window, bg='green', height=30)
+'''
 
 window.mainloop()

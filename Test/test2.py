@@ -1,34 +1,15 @@
-import os
-import subprocess
-os.system("netsh interface show interface")
-#subprocess.call(['Disable Proxy.reg'])
-subprocess.call(['reg', 'import', 'Enable Proxy.reg'])
+# import tkinter as tk
+from tkinter import *
 
-'''
-# It will enabled Wi-Fi Network
-#subprocess.call(['netsh', 'interface', 'set', 'interface', 'Wi-Fi', 'enabled'])
+root = tk.Tk()
+root.geometry('400x300')
 
-# It will enabled TPALAN Network
-subprocess.call(['netsh', 'interface', 'set', 'interface', 'Wi-Fi', 'disabled'])
-subprocess.call(['netsh', 'interface', 'set', 'interface', 'TPALANDOC', 'enabled'])
+header = tk.Frame(root, bg='green', height=30)
+content = tk.Frame(root, bg='red')
+footer = tk.Frame(root, bg='green', height=30)
 
+header.pack(fill='both')
+content.pack(fill='both', expand=True)
+footer.pack(fill='both')
 
-def enable():
-    os.system("netsh interface set interface 'Wi-Fi' enabled")
-enable()
-
-#def disable():
-#   os.system("netsh interface set interface 'TPALAN' disabled")
-
-#disable()
-
-'''
-
-'''
-import subprocess
-
-def enable():
-    subprocess.call('netsh interface set interface "Wi-Fi" enabled')
-enable()
-
-'''
+root.mainloop()
