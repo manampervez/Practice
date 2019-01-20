@@ -1,13 +1,21 @@
-grams1 = 1000
-pounds1 = 2.20462
-ounces1 = 35.274
+from tkinter import *
 
+window = Tk()
+frame = Frame(window)
+frame.pack()
 
-okey1= 10*grams1
-okey2= 10*pounds1
-okey3= 10*ounces1
+bottomframe = Frame(window)
+bottomframe.pack( side = BOTTOM )
 
+redbutton = Button(frame, text = "Red", fg = "red", height = '2', width = '30')
+redbutton.pack( side = LEFT)
 
-print(okey1)
-print(okey2)
-print(okey3)
+greenbutton = Button(frame, text = "Brown", fg="brown")
+greenbutton.pack( side = LEFT )
+
+bluebutton = Button(frame, text = "Blue", fg = "blue")
+bluebutton.pack( side = LEFT )
+
+blackbutton = Button(bottomframe, text = "Black", fg = "black", height = '2', width = '100')
+blackbutton.pack( side = BOTTOM)
+window.
