@@ -3,6 +3,7 @@ import subprocess
 from tkinter import *
 from PIL import Image,ImageTk
 import webbrowser
+from tkinter import ttk
 
 window= Tk()
 
@@ -41,7 +42,7 @@ def citypassReset():
 ###############################################################################
 
 window.geometry('250x450+250+250') # Window Size
-# window.resizable(width=False, height=False) # This code will Stop resizing the windows size that you define.
+window.resizable(width=False, height=False) # This code will Stop resizing the windows size that you define.
 window.title("TPA Software")
 window.configure(bg='green')
 
@@ -79,6 +80,8 @@ wifiFixing.grid(row=6,column=0,padx=40, pady=10)
 lanFixing=Button(window,text="Internet Connection Fixing",command=lanFixingscript, height=1, width=22)
 lanFixing.grid(row=7,column=0,padx=40, pady=10)
 
+# ttk.Separator(master,orient=HORIZONTAL).grid(row=2, columnspan=5,sticky="sw")
+ttk.Separator(window).place(x=0, y=410, relwidth=1)
 
 footer = Label(window, text="Designed and Developed By \nToronto Parking Authority I.T Department",
                font=("Helvetica", 7),justify=CENTER,relief=RIDGE)
