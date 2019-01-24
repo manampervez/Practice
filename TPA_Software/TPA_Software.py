@@ -40,7 +40,8 @@ def citypassReset():
 
 ###############################################################################
 
-window.geometry('250x400+250+250') # Window Size
+window.geometry('250x450+250+250') # Window Size
+# window.resizable(width=False, height=False) # This code will Stop resizing the windows size that you define.
 window.title("TPA Software")
 window.configure(bg='green')
 
@@ -56,27 +57,34 @@ image=Image.open("logo.jpg")
 photo = ImageTk.PhotoImage(image)
 label = Label(image=photo, height=75,width=200)
 label.image = photo  # keep a reference!
-label.grid(row=0,column=0,columnspan=2, rowspan=2,sticky=W+E+N+S, padx=15, pady=15)
+label.grid(row=0,column=0,columnspan=2, rowspan=2,sticky=W+E+N+S, padx=20, pady=15)
 
 # ----------- End of Logo Configuration  -----------
 
 wifiOnButton=Button(window,text="WiFi-ON",command=wifiOnscript, height=1, width=22)
-wifiOnButton.grid(row=2,column=1,padx=10, pady=10)
+wifiOnButton.grid(row=2,column=0,padx=40, pady=10)
 
 wifiOffButton=Button(window,text="WiFi-OFF",command=wifiOffscript, height=1, width=22)
-wifiOffButton.grid(row=3,column=1,padx=10, pady=10)
+wifiOffButton.grid(row=3,column=0,padx=40, pady=10)
 
 cityOWA= Button(window, text = "Toronto Online Email",command=torontoOWA ,height=1, width=22)
-cityOWA.grid(row=4,column=1,padx=10, pady=10)
+cityOWA.grid(row=4,column=0,padx=40, pady=10)
 
 cityPassword=Button(window,text="City Password Reset",command=citypassReset, height=1, width=22)
-cityPassword.grid(row=5,column=1,padx=10, pady=10)
+cityPassword.grid(row=5,column=0,padx=40, pady=10)
 
 wifiFixing=Button(window,text="Wi-Fi Connection Fixing",command=wifiFixingscript, height=1, width=22)
-wifiFixing.grid(row=6,column=1,padx=10, pady=10)
+wifiFixing.grid(row=6,column=0,padx=40, pady=10)
 
 lanFixing=Button(window,text="Internet Connection Fixing",command=lanFixingscript, height=1, width=22)
-lanFixing.grid(row=7,column=1,padx=10, pady=10)
+lanFixing.grid(row=7,column=0,padx=40, pady=10)
+
+
+footer = Label(window, text="Designed and Developed By \nToronto Parking Authority I.T Department",
+               font=("Helvetica", 7),justify=CENTER,relief=RIDGE)
+footer.grid(row=8,column=0,padx=40, pady=29)
+
+
 
 
 window.mainloop()
