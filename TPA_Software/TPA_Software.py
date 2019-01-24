@@ -86,5 +86,4 @@ footer.grid(row=8,column=0,padx=40, pady=29)
 
 
 
-
 window.mainloop()
