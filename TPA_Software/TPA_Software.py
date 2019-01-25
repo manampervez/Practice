@@ -88,5 +88,4 @@ footer = Label(window, text="Designed and Developed By \nToronto Parking Authori
 footer.grid(row=8,column=0,padx=40, pady=29)
 
 
-
 window.mainloop()
