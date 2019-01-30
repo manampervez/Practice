@@ -1,0 +1,1 @@
+## Add "TPA_Software.exe" to antivirus exception list
