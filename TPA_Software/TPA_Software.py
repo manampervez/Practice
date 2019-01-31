@@ -39,7 +39,28 @@ def torontoOWA():
 def citypassReset():
     webbrowser.open(url2,new=new)
 
+
 ###############################################################################
+
+# ---------Menu functions Starts------------
+
+def donothing():
+    filewin = Toplevel(window)
+    button = Button(filewin, text="Do nothing button")
+    button.pack()
+
+menubar = Menu(window)
+filemenu = Menu(menubar, tearoff=0)
+filemenu.add_command(label="Admin", command=donothing)
+
+filemenu.add_separator()
+
+filemenu.add_command(label="Exit", command=window.quit)
+menubar.add_cascade(label="File", menu=filemenu)
+
+window.config(menu=menubar)
+
+# ---------Menu functions END---------------
 
 window.geometry('250x450+250+250') # Window Size
 window.resizable(width=False, height=False) # This code will Stop resizing the windows size that you define.
