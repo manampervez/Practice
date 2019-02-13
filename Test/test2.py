@@ -1,13 +1,20 @@
-from tkinter import *
-from tkinter import ttk
-master = Tk()
+import tkinter as tk
 
-# w = Label(master, text="Hello, world!")
-# w.pack()
+def countdown(count):
+    # change text in label
+    label['text'] = count
 
+    if count > 0:
+        # call countdown again after 1000ms (1s)
+        root.after(1000, countdown, count-1)
 
-ttk.Label(master, text='Heading Here').grid(row=1, column=1)
-# ttk.Separator(master,orient=HORIZONTAL).grid(row=2, columnspan=5,sticky="sw")
-ttk.Separator(master).place(x=0, y=26, relwidth=5)
+root = tk.Tk()
 
-mainloop()
+label = tk.Label(root)
+label.place(x=35, y=15)
+
+# call countdown first time
+countdown(5)
+# root.after(0, countdown, 5)
+
+root.mainloop()

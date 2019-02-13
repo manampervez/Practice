@@ -1,33 +1,42 @@
 import tkinter as tk
-from tkinter import ttk
+import tkinter.ttk as ttk
+import time
+import sys
 
 
-class SampleApp(tk.Tk):
+class ProgressBar:
+    def __init__(self):
+        self.window = tk.Tk()
 
-    def __init__(self, *args, **kwargs):
-        tk.Tk.__init__(self, *args, **kwargs)
-        self.button = ttk.Button(text="start", command=self.start)
-        self.button.pack()
-        self.progress = ttk.Progressbar(self, orient="horizontal",
-                                        length=200, mode="determinate")
-        self.progress.pack()
 
-        self.bytes = 0
-        self.maxbytes = 0
+        self.max = 120
+        self.step = tk.DoubleVar()
+        self.step.set(0)
+        self.progbar = ttk.Progressbar
 
-    def start(self):
-        self.progress["value"] = 0
-        self.maxbytes = 50000
-        self.progress["maximum"] = 50000
-        self.read_bytes()
+        self.frame = tk.Frame()
+        self.frame.pack(fill=tk.BOTH, padx=2, pady=2)
+        btn = tk.Button(self.frame, text='Start', bd=4, command=self.start_progbar)
+        btn.pack()
+        self.window.mainloop()
 
-    def read_bytes(self):
-        '''simulate reading 500 bytes; update progress bar'''
-        self.bytes += 500
-        self.progress["value"] = self.bytes
-        if self.bytes < self.maxbytes:
-            # read more bytes after 100 ms
-            self.after(100, self.read_bytes)
+    def add_progbar(self):
+        self.progbar = ttk.Progressbar(
+            self.frame,
+            orient=tk.HORIZONTAL,
+            mode='determinate',
+            variable=self.step,
+            maximum=self.max)
+        self.progbar.pack(fill=tk.X, expand=True)
 
-app = SampleApp()
-app.mainloop()
+    def start_progbar(self):
+        self.add_progbar()
+        for x in range(0, 120, 2):
+            self.step.set(x)
+            time.sleep(.1)
+            self.window.update()
+        self.progbar.destroy()
+
+
+if __name__ == '__main__':
+    ProgressBar()
