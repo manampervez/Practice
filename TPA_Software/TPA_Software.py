@@ -68,7 +68,7 @@ window.config(menu=menubar)
 '''
 # ---------Menu functions END---------------
 
-window.geometry('250x435+250+250') # Window Size
+window.geometry('250x445+250+250') # Window Size
 window.resizable(width=False, height=False) # This code will Stop resizing the windows size that you define.
 window.title("TPA Software")
 window.configure(bg='white')
@@ -118,9 +118,9 @@ lanFixing.config(font=('Raleway', 9, 'bold'))
 # ttk.Separator(master,orient=HORIZONTAL).grid(row=2, columnspan=5,sticky="sw")
 # ttk.Separator(window).place(x=0, y=410, relwidth=1)
 
-footer = Label(window, text="Designed and Developed By \nToronto Parking Authority I.T Department",
+footer = Label(window, text="Designed and Developed By \nToronto Parking Authority \nParking Technology & Information Security Department",
                font=("Helvetica", 7),justify=CENTER, bg='white')
-footer.grid(row=8,column=0,padx=0, pady=12)
+footer.grid(row=8,column=0,padx=5, pady=12)
 
 
 
