@@ -9,7 +9,7 @@ What user can do :
 """
 
 from tkinter import *
-import backend.py
+from backend
 
 window=Tk()
 
