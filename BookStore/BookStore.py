@@ -9,7 +9,45 @@ What user can do :
 """
 
 from tkinter import *
-from backend
+#from backend import *
+import backend
+
+def get_selected_row(event):
+    global selected_tuple
+    index=listbox.curselection()[0]
+    selected_tuple=listbox.get(index)
+    #listbox.delete(0, END)
+    entry1.delete(0,END)
+    entry1.insert(END, selected_tuple[1])
+    entry2.delete(0,END)
+    entry2.insert(END, selected_tuple[2])
+    entry3.delete(0,END)
+    entry3.insert(END, selected_tuple[3])
+    entry4.delete(0,END)
+    entry4.insert(END, selected_tuple[4])
+
+
+def delete_command():
+    backend.delete(selected_tuple[0])
+    entry1.delete(0,END)
+    entry2.delete(0, END)
+    entry3.delete(0, END)
+    entry4.delete(0, END)
+
+def view_command():
+    listbox.delete(0,END)
+    for row in backend.view():
+        listbox.insert(END,row)
+
+def search_command():
+    listbox.delete(0,END)
+    for row in backend.search(title_text.get(),author_text.get(),year_text.get(),isbn_text.get()):
+        listbox.insert(END,row)
+
+def addentry_command():
+    backend.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    listbox.delete(0, END)
+    listbox.insert(END, (title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
 
 window=Tk()
 
@@ -51,19 +89,22 @@ scrollbar.grid(row=2,column=2,rowspan=6)
 listbox.configure(yscrollcommand=scrollbar.set)
 scrollbar.configure(command=listbox.yview)
 
-button1=Button(window,text="View all", width=10)
+# This will select item to Delete
+listbox.bind('<<ListboxSelect>>',get_selected_row)
+
+button1=Button(window,text="View all", width=10,command=view_command)
 button1.grid(row=2,column=3)
 
-button2=Button(window,text="Search entry", width=10)
+button2=Button(window,text="Search Entry", width=10,command=search_command)
 button2.grid(row=3,column=3)
 
-button3=Button(window,text="Add entry", width=10)
+button3=Button(window,text="Add entry", width=10,command=addentry_command)
 button3.grid(row=4,column=3)
 
 button4=Button(window,text="Update", width=10)
 button4.grid(row=5,column=3)
 
-button5=Button(window,text="Delete", width=10)
+button5=Button(window,text="Delete", width=10,command=delete_command)
 button5.grid(row=6,column=3)
 
 button6=Button(window,text="Close", width=10)

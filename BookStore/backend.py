@@ -1,5 +1,6 @@
 import sqlite3
 
+
 def connect():
         connection1=sqlite3.connect("bookstore.db")
         cursorr=connection1.cursor()
@@ -26,7 +27,7 @@ def view():
 def search(title="",author="",year="",isbn=""):
     connection1=sqlite3.connect("bookstore.db")
     cursorr = connection1.cursor()
-    cursorr.execute("SELECT * FROM book WHERE title=? OR author=? OR year=? OR isbn=?, (title,author,year,isbn)")
+    cursorr.execute("SELECT * FROM book WHERE title=? OR author=? OR year=? OR isbn=?",(title,author,year,isbn))
     rows=cursorr.fetchall()
     connection1.close()
     return rows
@@ -45,13 +46,12 @@ def update(id,title,author,year,isbn):
     connection1.commit()
     connection1.close()
 
-
-
-
 connect()
-#insert("The Sun","John Tablet",1918,1932168976)
-print(view())
-#delete(3)
-update(2,"The Moon","Manam Pervez",1897,669453765)
-print(view())
+#insert("The Cox2day","Pervez",123456,1115676341)
+#delete(6)
 
+#rint(view())
+#print(search("The Cox2day"))
+#print(view())
+#update(2,"The Moon","Manam Pervez",1897,669453765)
+#print(view())
