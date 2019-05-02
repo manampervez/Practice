@@ -13,18 +13,21 @@ from tkinter import *
 import backend
 
 def get_selected_row(event):
-    global selected_tuple
-    index=listbox.curselection()[0]
-    selected_tuple=listbox.get(index)
-    #listbox.delete(0, END)
-    entry1.delete(0,END)
-    entry1.insert(END, selected_tuple[1])
-    entry2.delete(0,END)
-    entry2.insert(END, selected_tuple[2])
-    entry3.delete(0,END)
-    entry3.insert(END, selected_tuple[3])
-    entry4.delete(0,END)
-    entry4.insert(END, selected_tuple[4])
+    try:
+        global selected_tuple
+        index=listbox.curselection()[0]
+        selected_tuple=listbox.get(index)
+        #listbox.delete(0, END)
+        entry1.delete(0,END)
+        entry1.insert(END, selected_tuple[1])
+        entry2.delete(0,END)
+        entry2.insert(END, selected_tuple[2])
+        entry3.delete(0,END)
+        entry3.insert(END, selected_tuple[3])
+        entry4.delete(0,END)
+        entry4.insert(END, selected_tuple[4])
+    except IndexError:
+        pass
 
 
 def delete_command():
@@ -33,6 +36,12 @@ def delete_command():
     entry2.delete(0, END)
     entry3.delete(0, END)
     entry4.delete(0, END)
+    listbox.delete(0, END)
+
+def update_command():
+    backend.update(selected_tuple[0],title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    #print(selected_tuple[0],title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+
 
 def view_command():
     listbox.delete(0,END)
@@ -50,6 +59,7 @@ def addentry_command():
     listbox.insert(END, (title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
 
 window=Tk()
+window.wm_title("Manam's BookStore")
 
 
 lable1=Label(window, text="Title")
@@ -101,13 +111,13 @@ button2.grid(row=3,column=3)
 button3=Button(window,text="Add entry", width=10,command=addentry_command)
 button3.grid(row=4,column=3)
 
-button4=Button(window,text="Update", width=10)
+button4=Button(window,text="Update", width=10,command=update_command)
 button4.grid(row=5,column=3)
 
 button5=Button(window,text="Delete", width=10,command=delete_command)
 button5.grid(row=6,column=3)
 
-button6=Button(window,text="Close", width=10)
+button6=Button(window,text="Close", width=10,command=window.destroy)
 button6.grid(row=7,column=3)
 
 
