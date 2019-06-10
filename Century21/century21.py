@@ -8,3 +8,4 @@ r = requests.get("http://www.pyclass.com/real-estate/rock-springs-wy/LCWYROCKSPR
 c=r.content
 soup=BeautifulSoup(c,"html.parser")
 print(soup.prettify())
+.
