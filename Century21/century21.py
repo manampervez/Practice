@@ -7,4 +7,7 @@ r = requests.get("http://www.pyclass.com/real-estate/rock-springs-wy/LCWYROCKSPR
 #r=requests.get("https://www.royallepage.ca/en/on/brampton/properties/")
 c=r.content
 soup=BeautifulSoup(c,"html.parser")
-print(soup.prettify())
+#print(soup.prettify())
+all=soup.find_all("div",{"class":"propertyRow"})
+all2=all[0].find("h4",{"class":"propPrice"}).text.replace("\n","").replace(" ","")
+print(all2)
